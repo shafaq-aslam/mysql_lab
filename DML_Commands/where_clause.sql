@@ -42,3 +42,10 @@ AND processor_brand = 'snapdragon';
 SELECT * FROM mysqllab.smartphones
 WHERE brand_name = 'samsung'
 AND ram_capacity = 8;
+
+-- Find all samsung phones with ram 8GB, price < 30000 and processor snapdragon
+SELECT * FROM mysqllab.smartphones
+WHERE brand_name = 'samsung'
+AND price < 30000
+AND ram_capacity = 8
+AND processor_brand = 'snapdragon';
