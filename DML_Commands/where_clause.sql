@@ -49,3 +49,18 @@ WHERE brand_name = 'samsung'
 AND price < 30000
 AND ram_capacity = 8
 AND processor_brand = 'snapdragon';
+
+-- Find all expensive phones price > 50000
+SELECT * FROM mysqllab.smartphones
+WHERE price > 50000;
+
+SELECT * FROM mysqllab.smartphones
+WHERE price > 100000;
+
+-- Find all apple phones price > 100000 and rating > 80
+SELECT * FROM mysqllab.smartphones
+WHERE brand_name = 'apple'
+AND price > 100000
+AND rating > 80;
+
+
