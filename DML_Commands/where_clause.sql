@@ -37,3 +37,8 @@ SELECT * FROM mysqllab.smartphones
 WHERE price < 25000
 AND rating > 80
 AND processor_brand = 'snapdragon';
+
+-- Find all samsung phones with ram 8GB
+SELECT * FROM mysqllab.smartphones
+WHERE brand_name = 'samsung'
+AND ram_capacity = 8;
