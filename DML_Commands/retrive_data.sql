@@ -18,4 +18,9 @@ FROM mysqllab.smartphones;
  
 SELECT model, rating/10 As rate FROM mysqllab.smartphones;
 
+-- Constants
+SELECT model, 'Smartphone' As 'type' FROM mysqllab.smartphones; 
+SELECT model, 'Smartphone' As 'type', os As 'Operating System' FROM mysqllab.smartphones; 
+ 
+
 
