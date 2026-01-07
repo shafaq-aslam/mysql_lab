@@ -30,6 +30,13 @@ WHERE brand_name = 'apple'
 AND processor_brand = 'bionic'
 AND rating BETWEEN 70 AND 80; 
 
+-- Find brands who sell phones with price > 50000
+SELECT DISTINCT(brand_name) FROM mysqllab.smartphones
+WHERE price > 50000;
+
+-- Find brands who sell phones with price range of 8000 and 100000
+SELECT DISTINCT(brand_name) FROM mysqllab.smartphones
+WHERE price BETWEEN 80000 AND 100000;
 
 
 
