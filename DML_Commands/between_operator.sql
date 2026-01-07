@@ -1,5 +1,4 @@
 -- BETWEEN 
- 
 SELECT * FROM mysqllab.smartphones;
 
 -- Find all phones in the price range of 10000 and 20000
@@ -19,6 +18,12 @@ SELECT * FROM mysqllab.smartphones
 WHERE rating BETWEEN 70 AND 80 
 AND price BETWEEN 25000 AND 35000
 AND ram_capacity > 6;
+
+-- Find phones price range 85000 and 100000, and brand name samsung
+SELECT * FROM mysqllab.smartphones
+WHERE price BETWEEN 85000 AND 100000
+AND brand_name = 'samsung'; 
+
 
 
 
