@@ -24,6 +24,12 @@ SELECT * FROM mysqllab.smartphones
 WHERE price BETWEEN 85000 AND 100000
 AND brand_name = 'samsung'; 
 
+-- Find all apple phones with processor bionic and rating of range 70 and 80
+SELECT * FROM mysqllab.smartphones
+WHERE brand_name = 'apple'
+AND processor_brand = 'bionic'
+AND rating BETWEEN 70 AND 80; 
+
 
 
 
