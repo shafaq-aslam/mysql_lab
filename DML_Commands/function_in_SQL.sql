@@ -13,3 +13,13 @@ SELECT MAX(price) FROM mysqllab.smartphones
 WHERE brand_name = 'samsung'; 
 
 -- AVG() 
+-- Find the avg rating of apple phone
+SELECT AVG(rating) FROM mysqllab.smartphones
+WHERE brand_name = 'apple'; 
+
+SELECT AVG(rating) FROM mysqllab.smartphones
+WHERE brand_name = 'samsung'; 
+
+-- Average price of samsung phones 
+SELECT AVG(price) FROM mysqllab.smartphones
+WHERE brand_name = 'samsung';
