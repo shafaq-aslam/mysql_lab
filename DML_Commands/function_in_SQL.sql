@@ -23,3 +23,20 @@ WHERE brand_name = 'samsung';
 -- Average price of samsung phones 
 SELECT AVG(price) FROM mysqllab.smartphones
 WHERE brand_name = 'samsung';
+
+-- SUM()
+SELECT SUM(price) FROM mysqllab.smartphones; 
+
+-- COUNT() --> count number of instances
+-- Find the number of oneplus phones
+SELECT COUNT(*) FROM mysqllab.smartphones
+WHERE brand_name = 'oneplus'; 
+
+-- Find the number of samsung phones
+SELECT COUNT(*) FROM mysqllab.smartphones
+WHERE brand_name = 'samsung';
+
+-- COUNT(DISTINCT) --> number of unique
+SELECT COUNT(DISTINCT(brand_name)) FROM mysqllab.smartphones;
+SELECT COUNT(DISTINCT(processor_brand)) FROM mysqllab.smartphones;
+SELECT COUNT(DISTINCT(model)) FROM mysqllab.smartphones;
