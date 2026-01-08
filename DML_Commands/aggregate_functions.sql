@@ -40,3 +40,10 @@ WHERE brand_name = 'samsung';
 SELECT COUNT(DISTINCT(brand_name)) FROM mysqllab.smartphones;
 SELECT COUNT(DISTINCT(processor_brand)) FROM mysqllab.smartphones;
 SELECT COUNT(DISTINCT(model)) FROM mysqllab.smartphones;
+
+-- STD()
+-- Find the std of screen size
+SELECT STD(screen_size) FROM mysqllab.smartphones;  
+
+-- VARIANCE 
+SELECT VARIANCE(screen_size) FROM mysqllab.smartphones;
