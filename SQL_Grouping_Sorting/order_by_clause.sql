@@ -1,5 +1,4 @@
 -- SORTING DATA (ORDER BY)
-SELECT * FROM mysqllab.smartphones;
 
 -- Find top 5 samsung phones with biggest screen size
 SELECT model, screen_size FROM mysqllab.smartphones
