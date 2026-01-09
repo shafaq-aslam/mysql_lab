@@ -17,6 +17,18 @@ FROM mysqllab.smartphones
 ORDER BY PPI DESC;
 
 -- Find the phone with second largest battery
+SELECT model, battery_capacity FROM mysqllab.smartphones
+ORDER BY battery_capacity DESC LIMIT 1, 1; -- 1 is offset, 1 is no of rows
+
 -- Find the name and rating of the worst ratted apple phone  
+SELECT model, rating FROM mysqllab.smartphones
+WHERE brand_name = 'apple'
+ORDER BY rating ASC LIMIT 1;
+
 -- Sort phones alphabetically and then on the basis of rating in desc order
+SELECT brand_name, model, rating FROM mysqllab.smartphones
+ORDER BY brand_name ASC, rating DESC;
+
 -- Sort phones alphabetically and then on the basis of price in asc order
+SELECT brand_name, model, rating, price FROM mysqllab.smartphones
+ORDER BY brand_name ASC, price ASC;
