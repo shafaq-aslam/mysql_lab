@@ -7,11 +7,30 @@ MAX(rating) AS 'max_rating',
 ROUND(AVG(screen_size), 2) AS 'avg_screen_size',
 ROUND(AVG(battery_capacity)) AS 'avg_battery_capacity'
 FROM mysqllab.smartphones
-Group By brand_name
+GROUP BY brand_name
 ORDER BY num_phones DESC;
 
-
 -- Group smartphones by whether they have an NFC and get the average price and rating
+SELECT has_nfc, 
+AVG(price) AS 'avg_price',
+AVG(rating) AS 'avg_rating'
+FROM mysqllab.smartphones
+GROUP BY has_nfc;
+
+-- for has_5g 
+SELECT has_5g, 
+AVG(price) AS 'avg_price',
+AVG(rating) AS 'avg_rating'
+FROM mysqllab.smartphones
+GROUP BY has_5g;
+
+-- for fast charging available 
+SELECT fast_charging_available, 
+AVG(price) AS 'avg_price',
+AVG(rating) AS 'avg_rating'
+FROM mysqllab.smartphones
+GROUP BY fast_charging_available;
+
 -- Group smartphones by the extended memory available and get the average price
 -- Group smartphones by the brand and processor brand and get the count of models and the average primary camera resolution (rear)
 -- Find top 5 most costly phone brands
