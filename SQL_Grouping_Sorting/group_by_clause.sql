@@ -32,6 +32,10 @@ FROM mysqllab.smartphones
 GROUP BY fast_charging_available;
 
 -- Group smartphones by the extended memory available and get the average price
+SELECT extended_memory_available,
+AVG(price) AS 'avg_price' 
+FROM mysqllab.smartphones
+GROUP BY extended_memory_available;
 -- Group smartphones by the brand and processor brand and get the count of models and the average primary camera resolution (rear)
 -- Find top 5 most costly phone brands
 -- Which brand makes the smallest screen smartphones
