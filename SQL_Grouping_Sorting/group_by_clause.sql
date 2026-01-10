@@ -36,8 +36,20 @@ SELECT extended_memory_available,
 AVG(price) AS 'avg_price' 
 FROM mysqllab.smartphones
 GROUP BY extended_memory_available;
+
 -- Group smartphones by the brand and processor brand and get the count of models and the average primary camera resolution (rear)
+SELECT brand_name, processor_brand,
+COUNT(*) AS 'num_models', 
+ROUND(AVG(primary_camera_rear)) AS 'avg_rear_camera'
+FROM mysqllab.smartphones
+GROUP BY brand_name, processor_brand;
+
 -- Find top 5 most costly phone brands
+SELECT brand_name, ROUND(AVG(price)) AS 'avg_price'
+FROM mysqllab.smartphones
+GROUP BY brand_name
+ORDER BY avg_price DESC LIMIT 5;
+
 -- Which brand makes the smallest screen smartphones
 -- Avg price of 5g phones vs avg price of non 5g phones
 -- Group smartphones by the brand, and find the brand with the highest number of models that have both NFC and an IR blaster
