@@ -51,7 +51,21 @@ GROUP BY brand_name
 ORDER BY avg_price DESC LIMIT 5;
 
 -- Which brand makes the smallest screen smartphones
+SELECT brand_name, ROUND(AVG(screen_size)) AS 'smallest_screen' 
+FROM mysqllab.smartphones
+GROUP BY brand_name
+ORDER BY smallest_screen ASC LIMIT 1;
+
 -- Avg price of 5g phones vs avg price of non 5g phones
+SELECT has_5g, ROUND(AVG(price)) AS 'avg_price' 
+FROM mysqllab.smartphones
+GROUP BY has_5g;
+
 -- Group smartphones by the brand, and find the brand with the highest number of models that have both NFC and an IR blaster
+SELECT brand_name, COUNT(*) AS 'count' 
+FROM mysqllab.smartphones
+WHERE has_5g = 'True' AND has_ir_blaster = 'True'
+GROUP BY brand_name
+
 -- Find all samsung 5g enable smartphones and find out the avg price for NFC and Non-NFC phones
 -- Find the phone name, price of the costliest phone      
