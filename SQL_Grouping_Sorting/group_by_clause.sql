@@ -66,6 +66,15 @@ SELECT brand_name, COUNT(*) AS 'count'
 FROM mysqllab.smartphones
 WHERE has_5g = 'True' AND has_ir_blaster = 'True'
 GROUP BY brand_name
+ORDER BY count DESC LIMIT 1;
 
 -- Find all samsung 5g enable smartphones and find out the avg price for NFC and Non-NFC phones
--- Find the phone name, price of the costliest phone      
+SELECT has_nfc, AVG(price) AS 'avg_price' 
+FROM mysqllab.smartphones
+WHERE brand_name = 'samsung' AND has_5g = 'True'
+GROUP BY has_nfc;
+
+-- Find the phone name, price of the costliest phone 
+SELECT model, price 
+FROM mysqllab.smartphones 
+ORDER BY price DESC LIMIT 1;    
