@@ -35,4 +35,9 @@ GROUP BY brand_name
 HAVING COUNT(*) > 10
 ORDER BY avg_ram DESC LIMIT 3;
 
--- Find the avg price of all the phone brands with avg rating > 70 and num_phones more than 10 among all 5g enabled phones    
+-- Find the avg price of all the phone brands with avg rating > 70 and num_phones more than 10 among all 5g enabled phones
+SELECT brand_name, AVG(price) AS 'avg_price' 
+FROM mysqllab.smartphones
+WHERE has_5g = 'True'
+GROUP BY brand_name
+HAVING AVG(rating) > 70 AND COUNT(*) > 10; 
