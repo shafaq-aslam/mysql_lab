@@ -39,9 +39,27 @@ FROM mysql_joins.orders t1
 JOIN mysql_joins.users t2
 ON t1.user_id = t2.user_id;
 
-
 -- 2. Find order_id, product category by joining order_details and category.    
  SELECT t1.order_id, t2.vertical 
  FROM mysql_joins.order_details t1
  JOIN mysql_joins.category t2
  ON t1.category_id = t2.category_id;
+ 
+-- Filtering Rows
+-- 1. Find all the orders placed in pune
+SELECT * FROM mysql_joins.orders t1
+JOIN mysql_joins.users t2
+ON t1.user_id = t2.user_id
+WHERE t2.city = 'Pune';
+ 
+SELECT * FROM mysql_joins.orders t1
+JOIN mysql_joins.users t2
+ON t1.user_id = t2.user_id
+WHERE t2.city = 'Pune'
+AND t2.name = 'Sarita';
+
+-- 2. Find all orders under Chairs category 
+SELECT * FROM mysql_joins.order_details t1
+JOIN mysql_joins.category t2
+ON t1.category_id = t2.category_id
+WHERE t2.vertical = 'Chairs';
