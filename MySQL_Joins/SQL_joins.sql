@@ -18,3 +18,13 @@ ON t1.user_id = t2.user_id;
 SELECT * FROM mysql_joins.membership t1
 RIGHT JOIN mysql_joins.users t2
 ON t1.user_id = t2.user_id;
+
+-- FULL OUTER JOIN
+SELECT * FROM mysql_joins.membership t1
+LEFT JOIN mysql_joins.users t2
+ON t1.user_id = t2.user_id
+UNION
+SELECT * FROM mysql_joins.membership t1
+RIGHT JOIN mysql_joins.users t2
+ON t1.user_id = t2.user_id;
+
