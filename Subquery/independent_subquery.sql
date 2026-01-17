@@ -9,6 +9,9 @@ SELECT * FROM movies
 ORDER BY (gross - budget) DESC LIMIT 1;
 
 -- 2. Find how many movies have a rating > the avg of all the movies ratings (Find the count of above avg movies)
+SELECT COUNT(*) FROM mysql_subquery.movies
+WHERE score > (SELECT AVG(score) FROM mysql_subquery.movies);
+
 -- 3. Find the highest rated movie of 2000
 -- 4. Find the highest rated movie among all movies whose number of votes are > the dataset avg votes
     
