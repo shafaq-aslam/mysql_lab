@@ -13,5 +13,13 @@ SELECT COUNT(*) FROM mysql_subquery.movies
 WHERE score > (SELECT AVG(score) FROM mysql_subquery.movies);
 
 -- 3. Find the highest rated movie of 2000
+SELECT * FROM mysql_subquery.movies
+WHERE year = 2000 AND score = (SELECT MAX(score) 
+								FROM mysql_subquery.movies
+                                WHERE year = 2000);
+
 -- 4. Find the highest rated movie among all movies whose number of votes are > the dataset avg votes
-    
+SELECT * FROM mysql_subquery.movies
+WHERE score = (SELECT MAX(score) FROM mysql_subquery.movies
+				WHERE votes > (SELECT AVG(votes) 
+				FROM mysql_subquery.movies));
