@@ -27,5 +27,14 @@ FROM mysql_subquery.movies
 GROUP BY genre
 HAVING AVG(score) > (SELECT AVG(score) FROM movies);
 
--- WITH INSERT 
+-- IN INSERT 
+CREATE TABLE IF NOT EXISTS loyal_users(
+	user_id INTEGER NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    money INTEGER NOT NULL
+);
+
+-- Populate an already created loyal_user table with records of only those customers who have ordered food more than 3 times
+
+
  
