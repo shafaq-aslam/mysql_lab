@@ -35,6 +35,9 @@ CREATE TABLE IF NOT EXISTS loyal_users(
 );
 
 -- Populate an already created loyal_user table with records of only those customers who have ordered food more than 3 times
-
-
+SELECT t1.user_id, name, COUNT(*) 
+FROM mysql_subquery.orders t1
+JOIN users t2 ON t1.user_id = t2.user_id
+GROUP BY user_id
+HAVING COUNT(*) > 3
  
