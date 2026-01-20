@@ -17,8 +17,7 @@ SELECT * FROM mysql_subquery.movies
 WHERE star IN (SELECT star FROM mysql_subquery.movies
 				WHERE votes > 25000
 				GROUP BY star
-				HAVING AVG(score) > 8.5
-                AND votes > 25000);
+				HAVING AVG(score) > 8.5);
                 -- OR --
 SELECT name, votes, director, star FROM mysql_subquery.movies
 WHERE star IN (SELECT star FROM mysql_subquery.movies
