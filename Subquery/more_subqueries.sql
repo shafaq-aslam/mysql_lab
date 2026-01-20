@@ -19,4 +19,7 @@ FROM mysql_subquery.movies m1;
 		 GROUP BY r_id) t1 JOIN restaurants t2
 		 ON t1.r_id = t2.r_id;
  
+-- WITH HAVING
+
+-- Find genres having avg score > avg score of all the movies  
  
