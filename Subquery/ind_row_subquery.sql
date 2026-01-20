@@ -13,4 +13,16 @@ SELECT * FROM mysql_subquery.movies
 WHERE director IN (SELECT * FROM top_directors);
 
 -- Find all movies of all those actors whose filmography's avg rating > 8.5 (take 25000 votes as cutoff)
-  
+SELECT * FROM mysql_subquery.movies
+WHERE star IN (SELECT star FROM mysql_subquery.movies
+				WHERE votes > 25000
+				GROUP BY star
+				HAVING AVG(score) > 8.5
+                AND votes > 25000);
+                -- OR --
+SELECT name, votes, director, star FROM mysql_subquery.movies
+WHERE star IN (SELECT star FROM mysql_subquery.movies
+				WHERE votes > 25000
+				GROUP BY star
+				HAVING AVG(score) > 8.5
+                AND votes > 25000);
