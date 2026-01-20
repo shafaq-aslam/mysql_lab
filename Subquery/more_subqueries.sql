@@ -22,4 +22,10 @@ FROM mysql_subquery.movies m1;
 -- WITH HAVING
 
 -- Find genres having avg score > avg score of all the movies  
+SELECT genre, AVG(score) 
+FROM mysql_subquery.movies
+GROUP BY genre
+HAVING AVG(score) > (SELECT AVG(score) FROM movies);
+
+-- WITH INSERT 
  
