@@ -1,4 +1,4 @@
--- Independent Row Subquery
+-- Independent Row Subquery (one col but multi rows)
 
 -- Find all users who never ordered
 -- Find all the movies made by top 3 directors (in terms of total gross incme)
