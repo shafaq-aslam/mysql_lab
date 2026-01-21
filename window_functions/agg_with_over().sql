@@ -23,3 +23,8 @@ INSERT INTO mysqllab.marks (name,branch,marks)VALUES
 ('Sunny','MECH',39),
 ('Gautam','MECH',51)
 
+
+-- Aggregate Function With Over()
+
+-- Find all the students who have marks higher than the avg marks of their respective branch
+   
