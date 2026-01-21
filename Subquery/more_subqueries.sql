@@ -52,4 +52,19 @@ UPDATE loyal_users
 SET money = (SELECT user_id, SUM(amount)*0.1 AS 'discount' 
 			FROM orders
 			GROUP BY user_id);
- 
+            
+-- IN DELETE
+
+-- Delete all the customer record who have never ordered
+DELETE FROM users
+WHERE user_id IN (SELECT user_id FROM users
+WHERE user_id NOT IN (SELECT DISTINCT(user_id) FROM orders)); -- Not working
+
+-- This query is working 
+DELETE FROM users
+WHERE user_id IN (SELECT user_id
+				FROM (SELECT c.user_id
+					 FROM users c
+					 WHERE c.user_id NOT IN (
+						 SELECT o.user_id
+						 FROM orders o)) AS temp);
