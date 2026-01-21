@@ -26,7 +26,6 @@ INSERT INTO mysqllab.marks (name,branch,marks)VALUES
 
 -- Aggregate Function With Over()
 
--- Find all the students who have marks higher than the avg marks of their respective branch
 SELECT *, AVG(marks) 
 OVER(PARTITION BY branch) 
 FROM mysqllab.marks;
@@ -53,3 +52,10 @@ MIN(marks) OVER(PARTITION BY branch) AS 'min_by_branch',
 MAX(marks) OVER(PARTITION BY branch) AS 'max_by_branch'
 FROM mysqllab.marks
 ORDER BY student_id;
+
+-- Find all the students who have marks higher than the avg marks of their respective branch
+
+SELECT * FROM (SELECT *, 
+AVG(marks) OVER(PARTITION BY branch) AS 'branch_avg'
+FROM mysqllab.marks) t
+WHERE t.marks > t.branch_avg;
