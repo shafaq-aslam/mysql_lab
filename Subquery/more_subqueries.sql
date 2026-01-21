@@ -49,9 +49,9 @@ HAVING COUNT(*) > 3;
 -- Populate the money col of loyal_users table using the orders table. Provide a 10% app money to all customers based on their order value
 
 UPDATE loyal_users
-SET money = (SELECT user_id, SUM(amount)*0.1 AS 'discount' 
+SET money = (SELECT SUM(amount)*0.1 
 			FROM orders
-			GROUP BY user_id);
+			WHERE orders.user_id = loyal_users.user_id);
             
 -- IN DELETE
 
