@@ -30,7 +30,6 @@ SELECT * FROM (SELECT MONTHNAME(date), user_id, SUM(amount) AS 'total',
 				ORDER BY MONTHNAME(date)) t
                 WHERE t.month_rank < 3
                 ORDER BY user_id ASC, month_rank ASC
--- Create roll no from branch and marks
 
 
 
