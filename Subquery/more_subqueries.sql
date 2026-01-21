@@ -29,15 +29,23 @@ HAVING AVG(score) > (SELECT AVG(score) FROM movies);
 
 -- IN INSERT 
 CREATE TABLE IF NOT EXISTS loyal_users(
-	user_id INTEGER NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    money INTEGER NOT NULL
+	user_id INTEGER,
+    name VARCHAR(50),
+    money INTEGER
 );
 
+DROP TABLE IF EXISTS loyal_users;
+
 -- Populate an already created loyal_user table with records of only those customers who have ordered food more than 3 times
-SELECT t1.user_id, name, COUNT(*) 
-FROM mysql_subquery.orders t1
+INSERT INTO loyal_users (user_id, name)
+SELECT t1.user_id, t2.name 
+FROM orders t1
 JOIN users t2 ON t1.user_id = t2.user_id
-GROUP BY user_id
+GROUP BY user_id, name
 HAVING COUNT(*) > 3
+
+-- IN UPDATE
+ 
+-- Populate the money col of loyal_users table using the orders table. Provide a 10% app money to all customers based on their order value
+ 
  
