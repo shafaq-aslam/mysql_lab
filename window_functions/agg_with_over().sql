@@ -29,4 +29,27 @@ INSERT INTO mysqllab.marks (name,branch,marks)VALUES
 -- Find all the students who have marks higher than the avg marks of their respective branch
 SELECT *, AVG(marks) 
 OVER(PARTITION BY branch) 
+FROM mysqllab.marks;
+
+-- Find all the minimum marks and maximum of the entire data 
+SELECT *,
+MAX(marks) OVER() AS 'max_marks',
+MIN(marks) OVER() AS 'min_marks'
 FROM mysqllab.marks
+ORDER BY student_id; -- to remove the sorting behavior
+
+SELECT *,
+AVG(marks) OVER() AS 'avg_marks',
+MAX(marks) OVER() AS 'max_marks',
+MIN(marks) OVER() AS 'min_marks'
+FROM mysqllab.marks
+ORDER BY student_id;
+
+SELECT *,
+AVG(marks) OVER() AS 'overall_avg',
+MAX(marks) OVER() AS 'max_marks',
+MIN(marks) OVER() AS 'min_marks',
+MIN(marks) OVER(PARTITION BY branch) AS 'min_by_branch',
+MAX(marks) OVER(PARTITION BY branch) AS 'max_by_branch'
+FROM mysqllab.marks
+ORDER BY student_id;
