@@ -42,10 +42,14 @@ SELECT t1.user_id, t2.name
 FROM orders t1
 JOIN users t2 ON t1.user_id = t2.user_id
 GROUP BY user_id, name
-HAVING COUNT(*) > 3
+HAVING COUNT(*) > 3;
 
 -- IN UPDATE
  
 -- Populate the money col of loyal_users table using the orders table. Provide a 10% app money to all customers based on their order value
- 
+
+UPDATE loyal_users
+SET money = (SELECT user_id, SUM(amount)*0.1 AS 'discount' 
+			FROM orders
+			GROUP BY user_id);
  
