@@ -21,10 +21,12 @@ INSERT INTO mysqllab.marks (name,branch,marks)VALUES
 ('Prashant','MECH',75),
 ('Amit','MECH',69),
 ('Sunny','MECH',39),
-('Gautam','MECH',51)
+('Gautam','MECH',51);
 
 
 -- Aggregate Function With Over()
 
 -- Find all the students who have marks higher than the avg marks of their respective branch
-   
+SELECT *, AVG(marks) 
+OVER(PARTITION BY branch) 
+FROM mysqllab.marks
