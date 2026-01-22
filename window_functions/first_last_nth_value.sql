@@ -3,6 +3,14 @@ USE mysqllab;
 -- Find  the student who hot highest marks
 SELECT *, 
 FIRST_VALUE(name) OVER(ORDER BY marks DESC)
-FROM marks
+FROM marks;
 
 -- LAST_VALUE
+SELECT *,
+LAST_VALUE(marks) OVER(ORDER BY marks DESC)
+FROM marks;
+
+SELECT *,
+LAST_VALUE(marks) OVER(ORDER BY marks DESC
+						ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+FROM marks;
