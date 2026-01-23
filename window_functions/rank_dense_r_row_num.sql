@@ -29,7 +29,13 @@ SELECT * FROM (SELECT MONTHNAME(date), user_id, SUM(amount) AS 'total',
 				GROUP BY MONTHNAME(date), user_id
 				ORDER BY MONTHNAME(date)) t
                 WHERE t.month_rank < 3
-                ORDER BY user_id ASC, month_rank ASC
+                ORDER BY user_id ASC, month_rank ASC;
 
 
+SELECT * FROM (SELECT BattingTeam, batter, SUM(batsman_run) AS 'total_runs',
+				DENSE_RANK() OVER(PARTITION BY BattingTeam ORDER BY SUM(batsman_run) DESC) AS 'rank_within_team'
+				FROM IPL
+				GROUP BY BattingTeam, batter) t
+WHERE t.rank_within_team < 6
+ORDER BY t.BattingTeam, t.rank_within_team
 
