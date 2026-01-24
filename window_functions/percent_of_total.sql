@@ -9,4 +9,4 @@ SELECT f_name, (total_value/SUM(total_value) OVER())*100 AS 'percent_of_total'
 					GROUP BY f_id) t
 JOIN food t3
 ON t.f_id = t3.f_id
-ORDER 
+ORDER BY (total_value/SUM(total_value) OVER())*100 DESC
