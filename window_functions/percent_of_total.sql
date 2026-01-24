@@ -1,5 +1,7 @@
 USE mysql_subquery;
 
+-- Percent of total
+ 
 SELECT f_name, (total_value/SUM(total_value) OVER())*100 AS 'percent_of_total'
 			FROM (SELECT f_id, SUM(amount) AS 'total_value' 
 					FROM orders t1
